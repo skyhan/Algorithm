@@ -23,9 +23,16 @@ def quick_sort(list, left, right):
         quick_sort(list, left, i-1)
         quick_sort(list, i + 1, right)
 
+def generate_list():
+    import random
+    list = []
+    for i in range(0, 20):
+        list.append(random.randint(0,10000))
+    return list
+
 if __name__ == '__main__':
     print 'quick sort'
-    list = [4, 3, 5, 2, 7, 1, 9]
+    list = generate_list()
     print list
     start_time = datetime.now()
     quick_sort(list, 0, len(list)-1)
