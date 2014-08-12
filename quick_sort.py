@@ -7,20 +7,16 @@ def quick_sort(list, left, right):
         base_number = list[i]
         
         while(i < j):
-            while(i < j):
-                if list[j] < base_number:
-                    list[i] = list[j]
-                    i += 1
-                    break
-                else:
-                    j -= 1
-            while(i < j):
-                if list[i] > base_number:
-                    list[j] = list[i]
-                    j -= 1
-                    break
-                else:
-                    i += 1
+            while(i < j and list[j]>= base_number):
+                j -= 1
+            if(i < j):
+                list[i] = list[j]
+                i += 1
+            while(i < j and list[i] <= base_number):
+                i += 1
+            if (i < j):
+                list[j] = list[i]
+                j -= 1
         list[i] = base_number
         
         
