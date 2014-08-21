@@ -1,27 +1,25 @@
 from datetime import datetime
-
+# choose list[right] as primary compare number
+# part the list into two parts
+# left to i: < list[right]
+# i+1 to right: > list[right]
 def quick_sort(list, left, right):
     if left < right:
-        i = left
-        j = right
-        base_number = list[i]
-        
-        while(i < j):
-            while(i < j and list[j]>= base_number):
-                j -= 1
-            if(i < j):
-                list[i] = list[j]
+        i = left -1
+        for j in range(left, right):
+            if list[j] < list[right]:
                 i += 1
-            while(i < j and list[i] <= base_number):
-                i += 1
-            if (i < j):
-                list[j] = list[i]
-                j -= 1
-        list[i] = base_number
-        
-        
+                swap(list, i, j)
+        # swap list[right] to the middle, i is the middle index
+        i += 1
+        swap(list, i, right)
         quick_sort(list, left, i-1)
         quick_sort(list, i + 1, right)
+
+def swap(list, i, j):
+    tmp = list[i]
+    list[i] = list[j]
+    list[j] = tmp
 
 def generate_list():
     import random
